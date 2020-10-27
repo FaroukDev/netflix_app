@@ -1,9 +1,16 @@
 import React, { Component} from 'react';
+import axios from 'axios';
+
 import Header from './components/Header';
 import Home from './routes/Home';
 
 
 import './App.css';
+const API_URL = 'https://api.themoviedb.org/3';
+const API_KEY = '26871ee4ec4ed58969ff8819cfeff30b';
+const IMAGE_BASE_URL = 'http://image.tmdb.org/t/p';
+const BACKDROP_SIZE = 'w1280';
+const POSTER_SIZE = 'w500';
 
 class App extends Component {
 
@@ -50,6 +57,31 @@ class App extends Component {
     activePage: 0,
     totalPages: 0,
     searchText: ""
+  }
+
+  async componentDidMount() {
+    try {
+      const { data : { results, page, total_pages}} = await this.loadMovies();
+      console.log('res', results);
+      this.setState({
+        movies: results,
+        loading: false,
+        activePage: page,
+        totalPages: total_pages,
+        image: `${IMAGE_BASE_URL}/${BACKDROP_SIZE}/${results[0].backdrop_path}`,
+        mTitle: results[0].title,
+        mDesc: results[0].overview
+
+      })
+    } catch(e){
+      console.log('e', e);
+    }
+  }
+ 
+  loadMovies = () => {
+    const page = this.state.activePage + 1
+    const url = `${API_URL}/movie/popular?api_key=${API_KEY}&page=${page}&language=fr}`;
+    return axios.get(url)
   }
 
   handleSearch = value => {
