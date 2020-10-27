@@ -1,26 +1,79 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component} from 'react';
+import Header from './components/Header';
+import Home from './routes/Home';
+
+
 import './App.css';
 
-function App() {
-  return (
+class App extends Component {
+
+  state = {
+    loading: false,
+    movies: [
+      {
+        backdrop_path: "./images/Fast_large.jpg",
+        id: 475557,
+        overview:
+          "Dans les années 1980, à Gotham City, Arthur Fleck, un humoriste de stand-up raté, bascule dans la folie et devient le Joker.",
+        poster_path: "./images/Fast_small.jpg",
+        title: "Joker"
+      },
+      {
+          backdrop_path: "./images/Fast_large.jpg",
+          id: 475558,
+          overview:
+            "Dans les années 1980, à Gotham City, Arthur Fleck, un humoriste de stand-up raté, bascule dans la folie et devient le Joker.",
+          poster_path: "./images/Fast_small.jpg",
+          title: "Joker"
+        },
+        {
+          backdrop_path: "./images/Fast_large.jpg",
+          id: 475559,
+          overview:
+            "Dans les années 1980, à Gotham City, Arthur Fleck, un humoriste de stand-up raté, bascule dans la folie et devient le Joker.",
+          poster_path: "./images/Fast_small.jpg",
+          title: "Joker"
+        },
+        {
+          backdrop_path: "./images/Fast_large.jpg",
+          id: 475560,
+          overview:
+            "Dans les années 1980, à Gotham City, Arthur Fleck, un humoriste de stand-up raté, bascule dans la folie et devient le Joker.",
+          poster_path: "./images/Fast_small.jpg",
+          title: "Joker"
+        }
+    ],
+    badge: 0,
+    image: './images/Fast_large.jpg',
+    mTitle: "Fast and Furious",
+    mDesc: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
+    activePage: 0,
+    totalPages: 0,
+    searchText: ""
+  }
+
+  handleSearch = value => {
+    // lancer la recherche 
+    console.log('handlesearch', value);
+  }
+
+
+  loadMore = () => {
+    console.log('loadMore');
+  }
+  render() {
+     return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header badge={this.state.badge}/>
+      <Home 
+        {...this.state}
+        onSearchClick={this.handleSearch}
+        onButtonClick={this.loadMore}
+      />
     </div>
   );
 }
+  }
+ 
 
 export default App;
