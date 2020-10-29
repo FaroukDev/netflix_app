@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import HeaderImg from '../components/HearderImg';
+import HeaderImg from '../components/HeaderImg';
 import SearchBar from '../components/SearchBar';
 import PosterList from '../components/PosterList';
 import LoadButton from '../components/LoadButton';
 
 class Home extends Component {
     render() {
-        const { mTitle, mDesc, image, movies, loading} = this.props
+        const { mTitle, mDesc, image, movies, loading } = this.props
         return (
             <div>
                 <HeaderImg
