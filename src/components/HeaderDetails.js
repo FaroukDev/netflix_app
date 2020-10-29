@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import Container from './Container';
-import Stars from './Stars';
 
+import Stars from './Stars';
 import "../css/HeaderDetails.css";
+const IMAGE_BASE_URL = "http://image.tmdb.org/t/p";
+const POSTER_SIZE = "w500";
 
 export default class HeaderDetails extends Component {
   render() {
-    const imgSrc = this.props.imgSrc;
+    const imgSrc = `${IMAGE_BASE_URL}/${POSTER_SIZE}/${this.props.imgSrc}`;
     return (
       <div className="headerDetails">
         <div className="badge-decoration">{this.props.status}</div>

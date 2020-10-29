@@ -13,7 +13,7 @@ const API_URL = "https://api.themoviedb.org/3";
 const API_KEY = "26871ee4ec4ed58969ff8819cfeff30b";
 const IMAGE_BASE_URL = "http://image.tmdb.org/t/p";
 const BACKDROP_SIZE = "w1280";
-const POSTER_SIZE = "w500";
+
 
 class App extends Component {
   state = {
