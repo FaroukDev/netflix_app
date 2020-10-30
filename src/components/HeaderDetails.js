@@ -3,11 +3,31 @@ import Container from './Container';
 
 import Stars from './Stars';
 import "../css/HeaderDetails.css";
+import { calcTime, convertMoney } from '../utils/helpers';
 const IMAGE_BASE_URL = "http://image.tmdb.org/t/p";
 const POSTER_SIZE = "w500";
 
+
+
 export default class HeaderDetails extends Component {
+  calcVote = () => {
+    this.fakeArray1 = [];
+    this.fakeArray2 = [];
+    const vote = Math.round(this.props.vote/2);
+    const reste = 5 - vote;
+    for (let i = 0; i < vote ; i++) {
+      this.fakeArray1.push("1")
+      
+    }
+    if( reste !== 0) {
+      for(let i = 0; i < reste; i++){
+        this.fakeArray2.push("1")
+      }
+    }
+
+  }
   render() {
+    this.calcVote();
     const imgSrc = `${IMAGE_BASE_URL}/${POSTER_SIZE}/${this.props.imgSrc}`;
     return (
       <div className="headerDetails">
@@ -26,9 +46,9 @@ export default class HeaderDetails extends Component {
           </h3>
           <p className="headerDetails--container__desc">{this.props.mDesc}</p>
           <div className="headerDetails--info">
-            <Container iconName="clock" content={this.props.runtime} />
-            <Stars fakeArray1={["1", "1", "1"]} fakeArray2={["1", "1"]} />
-            <Container iconName="money" content={this.props.revenue} />
+            <Container iconName="clock" content={calcTime(this.props.runtime)} />
+            <Stars fakeArray1={this.fakeArray1} fakeArray2={this.fakeArray2} />
+            <Container iconName="money" content={convertMoney(this.props.revenue)} />
           </div>
         </div>
       </div>
