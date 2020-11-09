@@ -5,3 +5,5 @@ export * from './PosterList';
 export * from './Poster';
 export * from './LoadButton';
 export * from './Spinner';
+export * from './VideoPlayer';
+export * from './MvPlayerList';
