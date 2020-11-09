@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from './store';
 
 import Header from "./components/Header";
 import Home from "./routes/Home";
@@ -13,7 +15,6 @@ const API_URL = "https://api.themoviedb.org/3";
 const API_KEY = "26871ee4ec4ed58969ff8819cfeff30b";
 const IMAGE_BASE_URL = "http://image.tmdb.org/t/p";
 const BACKDROP_SIZE = "w1280";
-
 
 class App extends Component {
   state = {
@@ -108,34 +109,32 @@ class App extends Component {
   };
   render() {
     return (
-      <BrowserRouter>
-        <div className="App">
-          <Header badge={this.state.badge} />
-          {!this.state.image ?
-          (
-            <Spinner/>
-          ) :
-          (
-            <Switch>
-            <Route
-              path="/"
-              exact
-              render={() => (
-                <Home
-                  {...this.state}
-                  onSearchClick={this.handleSearch}
-                  onButtonClick={this.loadMore}
+      <Provider store={store}>
+        <BrowserRouter>
+          <div className="App">
+            <Header badge={this.state.badge} />
+            {!this.state.image ? (
+              <Spinner />
+            ) : (
+              <Switch>
+                <Route
+                  path="/"
+                  exact
+                  render={() => (
+                    <Home
+                      {...this.state}
+                      onSearchClick={this.handleSearch}
+                      onButtonClick={this.loadMore}
+                    />
+                  )}
                 />
-              )}
-            />
-            <Route path='/:id' exact component={Details}/>
-            <Route component={NotFound}/>
-          </Switch>
-          )
-          }
-          
-        </div>
-      </BrowserRouter>
+                <Route path="/:id" exact component={Details} />
+                <Route component={NotFound} />
+              </Switch>
+            )}
+          </div>
+        </BrowserRouter>
+      </Provider>
     );
   }
 }

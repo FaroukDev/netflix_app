@@ -6,7 +6,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background: #901818;
+  background: #000000;
   color: #fff;
   position: fixed;
   top: 0;
@@ -14,14 +14,15 @@
 }
 .header h3 {
   font-weight: bold;
-  font-size: 2.7rem;
+  font-size: 3.7rem;
+  color: #901818;
 }
 .header--movie {
   color: #fff;
   margin-left: 2rem;
 }
 .header--heart {
-  color: #d8a860;
+  color: #901818;
   margin-right: 2rem;
   cursor: pointer;
 }

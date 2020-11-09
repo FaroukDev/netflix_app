@@ -11,7 +11,7 @@
   height: 7rem;
 }
 .active {
-  border-left: 1rem solid #901818;
+  border-left: 1rem solid #000000;
 }
 
 .mvPlayerListItem:hover {
