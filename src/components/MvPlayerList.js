@@ -28,7 +28,6 @@ class MvPlayerList extends Component {
         </div>
 
         <div className="mvPlayerList--list">{this.renderList(this.props)}</div>
-        
       </div>
     );
   }
