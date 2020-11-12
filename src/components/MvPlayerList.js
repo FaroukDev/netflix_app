@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import MvPlayerListItem from './MvPlayerListItem'
 
+import '../css/MvPlayerList.css';
+
 class MvPlayerList extends Component {
   renderList = props => {
     return props.movies.map((movie, i) => {

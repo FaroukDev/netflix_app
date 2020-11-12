@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import '../css/MvPlayerListItem.css';
+
 class MvPlayerListItem extends Component {
   render() {
       const activeClass = this.props.active ? 'mvPlayerListItem active' : 'mvPlayerListItem'

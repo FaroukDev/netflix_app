@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Home from "./routes/Home";
 import Details from "./routes/Details";
 import NotFound from "./routes/NotFound";
+import MoviePlayer from "./routes/MoviePlayer";
 import "./App.css";
 import Spinner from "./components/Spinner";
 
@@ -128,6 +129,8 @@ class App extends Component {
                     />
                   )}
                 />
+                <Route path="/player" exact component={MoviePlayer} />
+                <Route path="/player/:id" exact component={MoviePlayer} />
                 <Route path="/:id" exact component={Details} />
                 <Route component={NotFound} />
               </Switch>
