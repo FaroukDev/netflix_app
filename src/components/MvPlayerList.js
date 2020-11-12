@@ -1,6 +1,20 @@
 import React, { Component } from "react";
+import MvPlayerListItem from './MvPlayerListItem'
 
 class MvPlayerList extends Component {
+  renderList = props => {
+    return props.movies.map((movie, i) => {
+      const active = movie.id === props.selectedMovie.id ? true: false;
+      return (
+        <MvPlayerListItem
+          {...movie}
+          key={movie.id}
+          number={i + 1}
+          active={active}
+          />
+      )
+    })
+  }
   render() {
     const position = "1";
     const total = "1";
