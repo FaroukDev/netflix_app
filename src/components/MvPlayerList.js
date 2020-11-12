@@ -26,7 +26,9 @@ class MvPlayerList extends Component {
             {position}/{total}
           </div>
         </div>
+
         <div className="mvPlayerList--list">{this.renderList(this.props)}</div>
+        
       </div>
     );
   }
