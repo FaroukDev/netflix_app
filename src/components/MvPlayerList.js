@@ -25,6 +25,7 @@ class MvPlayerList extends Component {
           <div className="mvPlayerList--badge">
             {position}/{total}
           </div>
+          
         </div>
 
         <div className="mvPlayerList--list">{this.renderList(this.props)}</div>
