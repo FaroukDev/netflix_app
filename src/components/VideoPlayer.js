@@ -16,10 +16,10 @@ export default class VideoPlayer extends Component {
                 controls
                 playing={false}
                 width="100%"
-                heigth="100%"
+                height="100%"
                 style={{ position: "absolute", top: "0", left: "0"}}
-                ligth={this.props.imageUrl}
-                onEnded={this.handleEnded}
+                light={this.props.imageUrl}
+                onEnded={this.props.handleEnded}
             />
                 
             </div>

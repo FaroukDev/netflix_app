@@ -22,7 +22,10 @@ class HeaderComponent extends Component {
           />
         </Link>
         <h3>NETFLIX</h3>
-        <FontAwesome className="header--heart" name="heart" size="5x" />
+        <Link to={{ pathname: '/player' }}>
+          <FontAwesome className="header--heart" name="heart" size="5x" />
+        </Link>
+       
         <div className="header--badge">{this.props.badge}</div>
       </div>
     );
@@ -42,12 +45,5 @@ const mapDispatchToProps = dispatch => {
 }
 
 const Header = connect(mapStateToProps, mapDispatchToProps)(HeaderComponent)
-
-// state = {
-//   movies: {
-//     movies: [],
-//     number: 0,
-//   },
-// };  
 
 export default Header;
